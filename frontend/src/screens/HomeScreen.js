@@ -5,7 +5,6 @@ import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
 import Meta from "../components/Meta";
 import { listProducts } from "../actions/productActions";
@@ -27,15 +26,10 @@ const HomeScreen = ({ match }) => {
   return (
     <>
       <Meta />
-      {!keyword ? (
-        <ProductCarousel />
-      ) : (
-        <Link to="/" className="btn btn-light">
-          Quay lại
-        </Link>
-      )}
 
-      <h1>Sản phẩm mới nhất</h1>
+      <ProductCarousel />
+
+      <h1 className="mt-4">Sản phẩm mới nhất</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -49,13 +43,13 @@ const HomeScreen = ({ match }) => {
               </Col>
             ))}
           </Row>
-          <Paginate
-            pages={pages}
-            page={page}
-            keyword={keyword ? keyword : ""}
-          />
         </>
       )}
+      <div className="row justify-content-center">
+        <Link to="/products" className="btn btn-dark">
+          Tất cả sản phẩm
+        </Link>
+      </div>
     </>
   );
 };
