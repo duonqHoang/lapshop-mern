@@ -19,6 +19,7 @@ import {
   createProductReview,
 } from "../actions/productActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import { formatter } from "../components/Product";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -89,11 +90,13 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroup.Item>
                   <Rating
                     value={product.rating}
-                    text={`${product.numReviews} reviews`}
+                    text={`${product.numReviews} đánh giá`}
                   />
                 </ListGroup.Item>
                 <ListGroup.Item>Thương hiệu: {product.brand}</ListGroup.Item>
-                <ListGroup.Item>Giá: {product.price}Đ</ListGroup.Item>
+                <ListGroup.Item>
+                  Giá: {formatter.format(product.price)}
+                </ListGroup.Item>
                 <ListGroup.Item>Mô tả: {product.description}</ListGroup.Item>
               </ListGroup>
             </Col>
@@ -104,7 +107,7 @@ const ProductScreen = ({ history, match }) => {
                     <Row>
                       <Col>Giá:</Col>
                       <Col>
-                        <strong>{product.price}Đ</strong>
+                        <strong>{formatter.format(product.price)}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>

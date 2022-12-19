@@ -41,17 +41,20 @@ const AllProductsScreen = ({ match, location }) => {
             <DropdownItem as={Link} to="/products">
               Không chọn
             </DropdownItem>
+            <DropdownItem as={Link} to="/products?brand=Acer">
+              Acer
+            </DropdownItem>
             <DropdownItem as={Link} to="/products?brand=Asus">
               Asus
+            </DropdownItem>
+            <DropdownItem as={Link} to="/products?brand=Apple">
+              Apple
             </DropdownItem>
             <DropdownItem as={Link} to="/products?brand=Dell">
               Dell
             </DropdownItem>
             <DropdownItem as={Link} to="/products?brand=Lenovo">
               Lenovo
-            </DropdownItem>
-            <DropdownItem as={Link} to="/products?brand=Apple">
-              Apple
             </DropdownItem>
             <DropdownItem as={Link} to="/products?brand=HP">
               HP

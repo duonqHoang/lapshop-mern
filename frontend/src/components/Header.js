@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
@@ -23,10 +23,18 @@ const Header = () => {
           <LinkContainer to="/">
             <Navbar.Brand>LAPSHOP</Navbar.Brand>
           </LinkContainer>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Route render={({ history }) => <SearchBox history={history} />} />
             <Nav className="ml-auto">
+              <a
+                href="https://www.facebook.com/messages/t/100007804667409"
+                target="_blank"
+                className="nav-link"
+              >
+                <i class="fas fa-solid fa-phone"></i> Tư vấn
+              </a>
               <LinkContainer to="/cart">
                 <Nav.Link>
                   <i className="fas fa-shopping-cart"></i> Giỏ hàng

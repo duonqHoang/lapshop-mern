@@ -7,6 +7,7 @@ import CheckoutSteps from "../components/CheckoutSteps";
 import { createOrder } from "../actions/orderActions";
 import { ORDER_CREATE_RESET } from "../constants/orderConstants";
 import { USER_DETAILS_RESET } from "../constants/userConstants";
+import { formatter } from "../components/Product";
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -105,7 +106,8 @@ const PlaceOrderScreen = ({ history }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x {item.price}Đ = {item.qty * item.price}Đ
+                          {item.qty} x {formatter.format(item.price)} ={" "}
+                          {formatter.format(item.qty * item.price)}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -124,25 +126,25 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Sản phẩm</Col>
-                  <Col>{cart.itemsPrice}Đ</Col>
+                  <Col>{formatter.format(cart.itemsPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Phí giao hàng</Col>
-                  <Col>{cart.shippingPrice}Đ</Col>
+                  <Col>{formatter.format(cart.shippingPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Thuế</Col>
-                  <Col>{cart.taxPrice}Đ</Col>
+                  <Col>{formatter.format(cart.taxPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tổng</Col>
-                  <Col>{cart.totalPrice}Đ</Col>
+                  <Col>{formatter.format(cart.totalPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
