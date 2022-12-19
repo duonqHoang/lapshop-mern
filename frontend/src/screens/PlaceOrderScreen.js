@@ -105,7 +105,7 @@ const PlaceOrderScreen = ({ history }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x {item.price}Đ = {item.qty * item.price}Đ
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -124,25 +124,25 @@ const PlaceOrderScreen = ({ history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Sản phẩm</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>{cart.itemsPrice}Đ</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Phí giao hàng</Col>
-                  <Col>${cart.shippingPrice}</Col>
+                  <Col>{cart.shippingPrice}Đ</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Thuế</Col>
-                  <Col>${cart.taxPrice}</Col>
+                  <Col>{cart.taxPrice}Đ</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tổng</Col>
-                  <Col>${cart.totalPrice}</Col>
+                  <Col>{cart.totalPrice}Đ</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>

@@ -93,7 +93,7 @@ const ProductScreen = ({ history, match }) => {
                   />
                 </ListGroup.Item>
                 <ListGroup.Item>Thương hiệu: {product.brand}</ListGroup.Item>
-                <ListGroup.Item>Giá: ${product.price}</ListGroup.Item>
+                <ListGroup.Item>Giá: {product.price}Đ</ListGroup.Item>
                 <ListGroup.Item>Mô tả: {product.description}</ListGroup.Item>
               </ListGroup>
             </Col>
@@ -104,7 +104,7 @@ const ProductScreen = ({ history, match }) => {
                     <Row>
                       <Col>Giá:</Col>
                       <Col>
-                        <strong>${product.price}</strong>
+                        <strong>{product.price}Đ</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>

@@ -157,7 +157,7 @@ const OrderScreen = ({ match, history }) => {
                           </Link>
                         </Col>
                         <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x {item.price}Đ = {item.qty * item.price}Đ
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -176,25 +176,25 @@ const OrderScreen = ({ match, history }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Sản phẩm</Col>
-                  <Col>${order.itemsPrice}</Col>
+                  <Col>{order.itemsPrice}Đ</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Phí giao hàng</Col>
-                  <Col>${order.shippingPrice}</Col>
+                  <Col>{order.shippingPrice}Đ</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Thuế</Col>
-                  <Col>${order.taxPrice}</Col>
+                  <Col>{order.taxPrice}Đ</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tổng</Col>
-                  <Col>${order.totalPrice}</Col>
+                  <Col>{order.totalPrice}Đ</Col>
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (
