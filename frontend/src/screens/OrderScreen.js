@@ -206,7 +206,7 @@ const OrderScreen = ({ match, history }) => {
                     <Loader />
                   ) : (
                     <PayPalButton
-                      amount={order.totalPrice}
+                      amount={order.totalPrice / 23000}
                       onSuccess={successPaymentHandler}
                     />
                   )}
