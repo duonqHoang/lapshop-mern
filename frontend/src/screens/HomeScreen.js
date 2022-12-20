@@ -7,21 +7,17 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import ProductCarousel from "../components/ProductCarousel";
 import Meta from "../components/Meta";
-import { listProducts } from "../actions/productActions";
+import { listLatestProducts } from "../actions/productActions";
 
 const HomeScreen = ({ match }) => {
-  const keyword = match.params.keyword;
-
-  const pageNumber = match.params.pageNumber || 1;
-
   const dispatch = useDispatch();
 
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
+  const producLatest = useSelector((state) => state.productLatest);
+  const { loading, error, products } = producLatest;
 
   useEffect(() => {
-    dispatch(listProducts(keyword, pageNumber));
-  }, [dispatch, keyword, pageNumber]);
+    dispatch(listLatestProducts());
+  }, [dispatch]);
 
   return (
     <>

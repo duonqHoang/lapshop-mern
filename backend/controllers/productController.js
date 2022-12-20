@@ -53,6 +53,14 @@ const getProductById = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc Get latest products
+// @route GET /api/products/latest
+// @access Public
+const getLatestProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({}).sort({ _id: -1 }).limit(8);
+  res.json(products);
+});
+
 // @desc    Delete a product
 // @route   DELETE /api/products/:id
 // @access  Private/Admin
@@ -172,4 +180,5 @@ export {
   updateProduct,
   createProductReview,
   getTopProducts,
+  getLatestProducts,
 };
