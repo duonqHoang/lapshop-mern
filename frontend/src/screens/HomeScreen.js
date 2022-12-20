@@ -7,16 +7,19 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import ProductCarousel from "../components/ProductCarousel";
 import Meta from "../components/Meta";
-import { listLatestProducts } from "../actions/productActions";
+import { listLatestProducts, listTopProducts } from "../actions/productActions";
 
 const HomeScreen = ({ match }) => {
   const dispatch = useDispatch();
 
   const producLatest = useSelector((state) => state.productLatest);
+  const productTopRated = useSelector((state) => state.productTopRated);
   const { loading, error, products } = producLatest;
+  const productsTop = productTopRated.products;
 
   useEffect(() => {
     dispatch(listLatestProducts());
+    dispatch(listTopProducts());
   }, [dispatch]);
 
   return (
@@ -39,8 +42,19 @@ const HomeScreen = ({ match }) => {
               </Col>
             ))}
           </Row>
+
+          <h1 className="mt-4">Sản phẩm nổi bật</h1>
+
+          <Row>
+            {productsTop.map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
+              </Col>
+            ))}
+          </Row>
         </>
       )}
+
       <div className="row justify-content-center">
         <Link to="/products" className="btn btn-dark">
           Tất cả sản phẩm

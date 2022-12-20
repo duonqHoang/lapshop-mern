@@ -12,6 +12,7 @@ const ProductCarousel = () => {
 
   const productTopRated = useSelector((state) => state.productTopRated);
   const { loading, error, products } = productTopRated;
+  products.length = 3;
 
   useEffect(() => {
     dispatch(listTopProducts());
